@@ -1,13 +1,16 @@
+import { Link } from "expo-router"
 import { View } from "react-native"
 
 const index =  ()=>{
 
   return(
-    <view>
+    <View>
       <text>
-        Hello Welocme to dhyans app
+        Hello Welcome to my app
       </text>
-    </view>
+      <Link href={"/about"}>
+      go to about page</Link>
+    </View>
   )
 
 }
