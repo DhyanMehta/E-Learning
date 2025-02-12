@@ -1,21 +1,21 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
-const setUserAuth=async(value)=>{
-    await AsyncStorage.setItem('userData',JSON.stringify(value))
-}
+// const setUserAuth=async(value)=>{
+//     await AsyncStorage.setItem('userData',JSON.stringify(value))
+// }
 
-const getUserAuth=async()=>{
-   const value=await AsyncStorage.getItem('userData');
-   return JSON.parse(value)
-}
+// const getUserAuth=async()=>{
+//    const value=await AsyncStorage.getItem('userData');
+//    return JSON.parse(value)
+// }
 
-const Logout=()=>{
-    AsyncStorage.clear()
-}
+// const Logout=()=>{
+//     AsyncStorage.clear()
+// }
 
-export default{
-    setUserAuth,
-    getUserAuth,
-    Logout,
-}
+// export default{
+//     setUserAuth,
+//     getUserAuth,
+//     Logout,
+// }
