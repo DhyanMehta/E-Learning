@@ -1,16 +1,14 @@
 import { Link } from "expo-router"
-import { View } from "react-native"
+import { View,Text } from "react-native"
+import LoginPage from "./Pages/LoginPage"
 
 const index =  ()=>{
 
   return(
     <View>
-      <text>
-        Hello Welcome to my app
-      </text>
-      <Link href={"/about"}>
-      go to about page</Link>
+      <LoginPage/>
     </View>
+      
   )
 
 }
