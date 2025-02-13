@@ -34,8 +34,47 @@ export async function login(){
         const secret = url.searchParams.get('secret')?.toString();
         const userID= url.searchParams.get('userID')?.toString();
 
+        if(!secret || !userID) throw new Error('Failed to Login');
+
+        const session = await account.createSession(userID,secret);
+        
+        if(!session) throw new Error('Failed to Create a Session');
+
+
+        return true;
+
     }catch(error){
         console.error(error);
         return false;
     }
+}
+
+export async function logout() {
+    try{
+    await account.deleteSession('current');
+    return true;
+    }catch(error){
+    console.error(error);
+    return false;
+
+}
+}
+
+export async function getUser() {
+    try{
+        const response = await account.get();
+
+        if(response.$id){
+            const userAvatar = avatar.getInitials(XPathResult.name);
+            return {
+                ...response,
+                avatar: userAvatar.toString(),
+            }
+        }
+
+    }catch(error){
+        console.error(error);
+        return false;
+    }
+    
 }
