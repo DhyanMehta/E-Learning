@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "scheme": "EduSphere",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
@@ -45,6 +45,6 @@
       "eas": {
         "projectId": "4532bf85-d179-4edf-b54c-a81d7a948499"
       }
-    }
+  }
   }
 }

@@ -1,10 +1,19 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { StyleSheet } from 'react-native'
 import { Colors } from 'react-native/Libraries/NewAppScreen'
 import AntDesign from '@expo/vector-icons/AntDesign';
+import * as WebBrowser from 'expo-web-browser';
+import * as Google from 'expo-auth-session/providers/google'; 
 
 export default function LoginPage() {
+  WebBrowser.maybeCompleteAuthSession();
+  const [request, response, promptAsync] = Google.useAuthRequest({
+            androidClientId: '742041144195-g991kk4a8avv7gpooi25einq6fqv2uq7.apps.googleusercontent.com',
+            expoClientId:'742041144195-g6meh3s7j30e47vs1ivp6g35f9m045m2.apps.googleusercontent.com',
+            redirectUri:'https://auth.expo.io/dhyan_mehta/EduSphere'
+           
+          });
   return (
     <View>
       <Image source={require('./../assets/images/login_image.png')}/>
@@ -13,10 +22,10 @@ export default function LoginPage() {
         Welcome to EduSphere
       </Text>
       <Text style={{textAlign:'center' , marginTop:80 , fontSize:20}}> Login/Signup</Text>
-      <View style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={()=> promptAsync()}>
       <AntDesign name="google" size={24} color="white" style={{marginRight:10}}/>
         <Text style={{color:Colors.white}}>Sign in with Google</Text>
-      </View>
+      </TouchableOpacity>
       </View>
     </View>
   )
